@@ -1,0 +1,134 @@
+@page "/notes"
+@using Notebook.Models
+@inject NotebookDbContext Db
+
+<h3>Notes</h3>
+
+<div class="mb-3">
+    <label class="form-label">Title *</label>
+    <InputText class="form-control" @bind="newTitle" placeholder="Title"></InputText>
+
+    <label class="form-label">Description *</label>
+    <InputTextArea class="form-control" @bind="newDescription" placeholder="Description"></InputTextArea>
+
+    <label class="form-label">Priority</label>
+   <select class="form-select mb-2" @bind="newPriority">
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+    </select>
+
+    <button class="btn btn-primary mt-2" @onclick="AddNote">Add</button>
+</div>
+
+@if (notes == null)
+{
+    <p><em>Please wait, Loading...</em></p>
+}
+if (!notes.Any())
+{
+    <p>No record(s).</p>
+}
+else
+{
+    <ul class="list-group">
+        @foreach (var note in notes)
+        {
+            <li class="list-group-item">
+                <div class="d-flex justify-content-between align-items-start">
+                    @if (editNote?.Id == note.Id)
+                    {
+                        <InputText class="form-control mb-2" @bind="editNote.title"></InputText>
+                        <textarea class="form-control mb-2" @bind="editNote.description"></textarea>
+                        <select class="form-select mb-2" @bind="editNote.priority">
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                            </select>
+                        <button class="btn btn-success btn-sm me-2" @onclick="() => UpdateNote(note.Id)">Save</button>
+                    }
+                    else
+                    {
+                        <div>
+                            <strong>@note.createdDate.ToLocalTime().ToString("g")</strong><br />
+                            @note.title
+                            @note.description
+                             <span class="badge bg-@(note.priority == Priorities.High ? "danger" : note.priority == Priorities.Medium ? "warning" : "success")">
+                                @note.priority
+                            </span>
+                        </div>
+                        <div>
+                            <button class="btn btn-sm btn-warning me-2" @onclick="() => EditNote(note)">Edit</button>
+                            <button class="btn btn-sm btn-danger" @onclick="() => DeleteNote(note.Id)">Delete</button>
+                        </div>
+                    }
+                </div>
+            </li>
+        }
+    </ul>
+}
+
+@code {
+    private List<Notepad>? notes;
+    private string newTitle = string.Empty;
+    private string newDescription = string.Empty;
+    private Priorities newPriority = Priorities.Medium;
+    private Notepad? editNote;
+
+    protected override void OnInitialized() => ListNotes();
+
+    private void ListNotes() => notes = Db.Notes
+                  .OrderByDescending(n => n.createdDate)
+                  .ToList();
+
+    private void AddNote()
+    {
+        if (!string.IsNullOrWhiteSpace(newTitle) && !string.IsNullOrWhiteSpace(newDescription))
+        {
+            var note = new Notepad { title = newTitle, description = newDescription, priority = newPriority, createdDate = DateTime.UtcNow };
+            Db.Notes.Add(note);
+            Db.SaveChanges();
+            newTitle = string.Empty;
+            newDescription = string.Empty;
+            newPriority = Priorities.Medium;
+            ListNotes();
+        }
+    }
+
+    private void EditNote(Notepad note)
+    {
+        editNote = new Notepad
+        {
+            Id = note.Id,
+            title= note.title,
+            description = note.description,
+            priority = note.priority,
+            createdDate = note.createdDate
+        };
+    }
+
+    private void UpdateNote(int id)
+    {
+        var note = Db.Notes.FirstOrDefault(n => n.Id == id);
+        if (note != null && editNote != null)
+        {
+            note.title = editNote.title;
+            note.description = editNote.description;
+            note.priority = editNote.priority;
+            Db.SaveChanges();
+            editNote = null;
+            ListNotes();
+        }
+    }
+
+    private void DeleteNote(int id)
+    {
+        var note = Db.Notes.FirstOrDefault(n => n.Id == id);
+        if (note != null)
+        {
+            Db.Notes.Remove(note);
+            Db.SaveChanges();
+            ListNotes();
+        }
+    }
+}
