@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Interview\\Notebook\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C6129E6D-B753-497F-A0E0-3EC10AC39360}|Notebook\\Notebook.csproj|d:\\interview\\notebook\\notebook\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C6129E6D-B753-497F-A0E0-3EC10AC39360}|Notebook\\Notebook.csproj|solutionrelative:notebook\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6129E6D-B753-497F-A0E0-3EC10AC39360}|Notebook\\Notebook.csproj|d:\\interview\\notebook\\notebook\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C6129E6D-B753-497F-A0E0-3EC10AC39360}|Notebook\\Notebook.csproj|solutionrelative:notebook\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6129E6D-B753-497F-A0E0-3EC10AC39360}|Notebook\\Notebook.csproj|d:\\interview\\notebook\\notebook\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C6129E6D-B753-497F-A0E0-3EC10AC39360}|Notebook\\Notebook.csproj|solutionrelative:notebook\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Home.razor",
+              "DocumentMoniker": "D:\\Interview\\Notebook\\Notebook\\Components\\Pages\\Home.razor",
+              "RelativeDocumentMoniker": "Notebook\\Components\\Pages\\Home.razor",
+              "ToolTip": "D:\\Interview\\Notebook\\Notebook\\Components\\Pages\\Home.razor",
+              "RelativeToolTip": "Notebook\\Components\\Pages\\Home.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAACfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-03T15:54:01.946Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "D:\\Interview\\Notebook\\Notebook\\Components\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "Notebook\\Components\\Layout\\MainLayout.razor",
+              "ToolTip": "D:\\Interview\\Notebook\\Notebook\\Components\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "Notebook\\Components\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-03T15:52:58.824Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "D:\\Interview\\Notebook\\Notebook\\Components\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "Notebook\\Components\\Layout\\NavMenu.razor",
+              "ToolTip": "D:\\Interview\\Notebook\\Notebook\\Components\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "Notebook\\Components\\Layout\\NavMenu.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-03T15:51:33.437Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
